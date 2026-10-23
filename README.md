@@ -18,6 +18,10 @@ MAUI workloads, plus Xcode for iOS/Mac Catalyst or the Android SDK for Android.
 The project sets `PublishAot` to `true` unconditionally. With the .NET 11 mobile
 toolchain, Debug builds use CoreCLR.
 
+`ValidateXcodeVersion` is set to `false` to allow the demo to build with Xcode 27.1
+while the installed iOS workload expects 27.0. This bypasses only the version check;
+the mismatched toolchain remains unsupported and other build errors may still occur.
+
 ```sh
 dotnet workload restore src/BooRoute/BooRoute.csproj
 dotnet build src/BooRoute/BooRoute.csproj -f net11.0-ios
